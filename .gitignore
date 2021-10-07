@@ -1,0 +1,11 @@
+# ignore
+node_modules
+logs/*
+data/emojis
+.vscode
+.directory
+to-do.txt
+private
+package-lock.json
+# do not ignore
+!.gitkeep

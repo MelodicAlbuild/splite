@@ -1,0 +1,24 @@
+{
+  "botName": "Esports Pal",
+  "defaultPrefix": ".",
+  "token": "ODk0MzIzOTQ3OTgwNTk1Mjkw.YVoWFA.YLePBLk79QnPrHFF3oGK3vFODM4",
+  "botLogoURL": "https://i.imgur.com/B0XSinY.png",
+  "inviteLink": "https://discord.com/api/oauth2/authorize?client_id=894323947980595290&permissions=8&scope=bot%20applications.commands",
+  "ownerDiscordTag": "MelodicAlbuild#6554",
+  "ownerId": "392502749876584448",
+  "bugReportChannelId": "",
+  "feedbackChannelId": "",
+  "serverLogId": "",
+  "confessionReportsID": "",
+  "apiKeys": {
+    "catApi": "f7b8af9d-490a-48bf-afee-23e5439013ad",
+    "googleApi": "",
+    "amethyste": "9afe0000af4375ea5ef3795a00b753c4ad32db06c0a12e36e96f307ea1342c2a6952a4644bb8a26abf7edcecfb3ca486e699fe3124fb45d88a75b07716b70f77",
+    "imgflip": {
+      "username": "AlexDrum",
+      "password": "Icestar38"
+    },
+    "TopGGToken": "",
+    "TopGGID": ""
+  }
+}
