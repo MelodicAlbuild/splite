@@ -36,7 +36,6 @@
   },
   "scripts": {
     "start": "pm2 start",
-    "stop": "pm2 kill",
     "restart": "pm2 restart all"
   },
   "repository": {
