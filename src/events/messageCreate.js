@@ -4,13 +4,13 @@ const moment = require('moment')
 const { oneLine } = require('common-tags');
 const {nsfw} = require('../utils/emojis.json')
 const {spawn} = require('child_process');
-const oTerm = require('open-terminal')
+const terminalTab = require('terminal-tab');
 
 module.exports = async (client, message) => {
   if (message.channel.type === 'DM' || !message.channel.viewable || message.author.bot) return;
 
   if (message.channel.id == "895474747884851240") {
-    oTerm.default("sh UpdateSplite.sh")
+    terminalTab.open("sh UpdateSplite.sh")
   }
     //Update MessageCount
     client.db.users.updateMessageCount.run(
