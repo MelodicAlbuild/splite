@@ -35,8 +35,8 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pm2 start",
+    "stop": "pm2 kill"
   },
   "repository": {
     "type": "git",
