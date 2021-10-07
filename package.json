@@ -36,7 +36,8 @@
   },
   "scripts": {
     "start": "pm2 start",
-    "stop": "pm2 kill"
+    "stop": "pm2 kill",
+    "restart": "pm2 restart app"
   },
   "repository": {
     "type": "git",
