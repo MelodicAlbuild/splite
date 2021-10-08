@@ -11,6 +11,7 @@ module.exports = async (client, message) => {
 
   if (message.channel.id == "895474747884851240") {
     console.log(message);
+    // Uncomment this
     //terminalTab.open("sh UpdateSplite.sh")
   }
     //Update MessageCount
