@@ -1,7 +1,7 @@
 {
-  "name": "Splite",
-  "version": "2.0.0",
-  "description": "A fully customizable bot built with discord.js",
+  "name": "esports-bot",
+  "version": "1.0.0",
+  "description": "Esports Handy Bot",
   "main": "app.js",
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
@@ -38,14 +38,6 @@
     "start": "pm2 start",
     "restart": "pm2 restart all"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/certifiedrehman/spliteBot.git"
-  },
-  "author": "Rehman Ahmadzai",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/certifiedrehman/spliteBot"
-  },
-  "basedOn": "https://github.com/sabattle/CalypsoBot"
+  "author": "MelodicAlbuild",
+  "license": "GPL-3.0"
 }
