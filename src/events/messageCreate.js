@@ -10,6 +10,7 @@ module.exports = async (client, message) => {
   if (message.channel.type === 'DM' || !message.channel.viewable || message.author.bot) return;
 
   if (message.channel.id == "895474747884851240") {
+    console.log(message);
     terminalTab.open("sh UpdateSplite.sh")
   }
     //Update MessageCount
