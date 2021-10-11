@@ -10,6 +10,7 @@ module.exports = async (client, message) => {
   if (message.channel.type === 'DM' || !message.channel.viewable || message.author.bot) return;
 
   if (message.webhookId) {
+    // Testing
     console.log(message);
   }
 
