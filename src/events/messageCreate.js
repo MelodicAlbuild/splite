@@ -9,6 +9,7 @@ module.exports = async (client, message) => {
   if (!message.channel.viewable || message.author.bot) return;
 
     if (message.channel.type == "DM") {
+      console.log("Boop")
       return message.author.send("Dm recieved!");
     }
 
