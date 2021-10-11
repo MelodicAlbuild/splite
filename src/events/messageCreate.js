@@ -12,7 +12,7 @@ module.exports = async (client, message) => {
       let dmauthor = message.author;
       let dmmessage = message.content;
       let dmembed = new Discord.MessageEmbed()
-        .setDescription("Incoming Dm Support Request")
+        .setTitle("Incoming Support Request")
         .setColor("#00ffff")
         .addField("Author", message.author.username)
         .addField("Author ID", message.author.id)
