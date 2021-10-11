@@ -37,7 +37,10 @@ function init() {
     }
 
     // DM Check
-    if (message.channel == Discord.DMChannel) {
+
+    console.log(message.channel.type)
+
+    if (message.channel.type == "DM") {
       return message.channel.send("DM Recieved!");
     }
   })
