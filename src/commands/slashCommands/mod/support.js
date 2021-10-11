@@ -36,7 +36,7 @@ module.exports = class reactionMenu extends Command {
 
   async run(interaction, args) {
       await interaction.reply({
-        content: `Message sent to <@${args[0].value}> from **${interaction.author}**.`,
+        content: `Message sent to <@${args[0].value}> from **${interaction.member.user.tag}**.`,
       });
   }
 };
