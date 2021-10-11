@@ -19,8 +19,9 @@ module.exports = async (client, message) => {
 
       if (message.content.startsWith(".close") && channelName != null) {
         channelName.setParent(archiveCategory.id).then(channelName.send(`**${message.author.tag} closed this support ticket.**`))
-        let oldName = channelName.name;
-        channelName.setName(`archived-${oldName}`);
+        let i = 0;
+        archiveCategory.children.forEach(c => i++)
+        channelName.setName(`archived-ticket-${i}`);
         return message.author.send(`The Administation Thanks you for your Request!\nWe hope we were able to resolve your request! Remember, we are always just 1 DM away!\n-Eagle Esports Administation`)
       }
 
