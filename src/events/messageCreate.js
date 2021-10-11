@@ -3,6 +3,7 @@ const { online, dnd } = require('../utils/emojis.json')
 const moment = require('moment')
 const { oneLine } = require('common-tags');
 const {nsfw} = require('../utils/emojis.json')
+const Discord = require('discord.js');
 
 module.exports = async (client, message) => {
   if (message.author.bot) return;
