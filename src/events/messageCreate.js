@@ -5,13 +5,25 @@ const { oneLine } = require('common-tags');
 const {nsfw} = require('../utils/emojis.json')
 const Discord = require('discord.js');
 
+const supportCategory = "896963859183722536";
+const supportArchive = "896974461880901692";
+
 module.exports = async (client, message) => {
   if (message.author.bot) return;
 
     if (message.channel.type == "DM") {
       let channelName = null;
-      const category = await client.channels.cache.get("896963859183722536");
+      const category = await client.channels.cache.get(supportCategory);
+      const archiveCategory = await client.channels.cache.get(supportArchive);
       channelName = await category.guild.channels.cache.find(ch => ch.name == message.author.id)
+
+      if (message.content.startsWith(".close") && channelName != null) {
+        channelName.setParent(archiveCategory.id).then(channelName.send(`**${message.author.tag} closed this support ticket.**`))
+        let oldName = channelName.name;
+        channelName.setName(`archived-${oldName}`);
+        return message.author.send(`The Administation Thanks you for your Request!\nWe hope we were able to resolve your request! Remember, we are always just 1 DM away!\n-Eagle Esports Administation`)
+      }
+
       if(channelName != null) {
         return channelName.send(
           `**From ${message.author.tag} on ${message.createdAt}:**\n` +
@@ -39,9 +51,9 @@ module.exports = async (client, message) => {
       }
     }
 
-    if (message.channel.parent.id == "896963859183722536") {
+    if (message.channel.parent.id == supportCategory) {
       let user1 = await client.users.cache.get(message.channel.name);
-      if(user1) {
+      if (user1) {
         return user1.send(
           `**From ${message.author.tag} in ${message.guild.name}:**\n` +
             message.content
