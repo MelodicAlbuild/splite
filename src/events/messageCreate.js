@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
           .get("896956100115595365")
           .send({ embeds: [dmembed] }),
         dmauthor.send(
-          "The Staff of DefiantVideos has been Notified of your Issue, They will reply here shortly!"
+          "The Staff have been Notified of your Issue, They will reply here shortly!"
         )
       );
     }
