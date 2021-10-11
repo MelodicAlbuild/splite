@@ -9,7 +9,7 @@ module.exports = async (client, message) => {
   if (!message.channel.viewable || message.author.bot) return;
 
     if (message.channel.type == "DM") {
-      return message.channel.send("Dm recieved!");
+      return message.author.send("Dm recieved!");
     }
 
     //Update MessageCount
