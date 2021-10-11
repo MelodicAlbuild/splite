@@ -37,6 +37,7 @@ module.exports = async (client, message) => {
           );
         })
       }
+      break;
     }
 
     //Update MessageCount
