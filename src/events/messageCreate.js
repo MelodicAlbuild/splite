@@ -8,7 +8,22 @@ module.exports = async (client, message) => {
   if (message.author.bot) return;
 
     if (message.channel.type == "DM") {
-      return message.channel.send("DM Recieved!");
+      console.log(client.db.settings.selectSupportChannelId(message.guild.id));
+
+      let dmauthor = message.author;
+      let dmmessage = message.content;
+      let dmembed = new Discord.RichEmbed()
+        .setDescription("Incoming Dm Support Request")
+        .setColor("#00ffff")
+        .addField("Author", message.author.username)
+        .addField("Author ID", message.author.id)
+        .addField("Support Message", dmmessage);
+      return (
+        //client.channels.get("617878876680355871").send(dmembed),
+        dmauthor.send(
+          "The Staff of DefiantVideos has been Notified of your Issue, They will reply here shortly!"
+        )
+      );
     }
 
     //Update MessageCount
