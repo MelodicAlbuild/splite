@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
       channelName = await category.guild.channels.cache.find(ch => ch.name == message.author.id)
       if(channelName != null) {
         return channelName.send(
-          `**From ${message.author.tag} at ${message.createdAt}:**\n` +
+          `**From ${message.author.tag} on ${message.createdAt}:**\n` +
             message.content
         );
       } else {
@@ -39,12 +39,23 @@ module.exports = async (client, message) => {
       }
     }
 
-    //Update MessageCount
-    client.db.users.updateMessageCount.run(
-      { messageCount: 1 },
-      message.author.id,
-      message.guild.id
-    );
+    if (message.channel.parent.id == "896963859183722536") {
+      let user1 = await client.users.cache.get(message.channel.name);
+      if(user1) {
+        return user1.send(
+          `**From ${message.author.tag} in ${message.guild.name}:**\n` +
+            message.content
+        );
+      } else {
+        return;
+      }
+    }
+      //Update MessageCount
+      client.db.users.updateMessageCount.run(
+        { messageCount: 1 },
+        message.author.id,
+        message.guild.id
+      );
 
   const {
     afk: currentStatus,
