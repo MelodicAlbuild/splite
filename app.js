@@ -24,6 +24,7 @@ function init() {
   client.loadSlashCommands('./src/commands/slashCommands');
   client.loadTopics('./data/geoguessr');
 
+  // Restart on Update
   client.on('messageCreate', (message) => {
     if(message.webhookId){
       if (message.channel.id == "895474747884851240") {
