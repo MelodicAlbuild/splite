@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
     if (message.channel.type == "DM") {
       let dmauthor = message.author;
       let dmmessage = message.content;
-      let dmembed = new Discord.RichEmbed()
+      let dmembed = new Discord.MessageEmbed()
         .setDescription("Incoming Dm Support Request")
         .setColor("#00ffff")
         .addField("Author", message.author.username)
