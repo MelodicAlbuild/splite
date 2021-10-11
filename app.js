@@ -36,14 +36,6 @@ function init() {
         terminalTab.open("sh UpdateSplite.sh")
       }
     }
-
-    // DM Check
-
-    console.log(message.channel.type)
-
-    if (message.channel.type == "DM") {
-      return message.channel.send("DM Recieved!");
-    }
   })
 
   client.login(client.token);
