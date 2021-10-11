@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
       channelName = await category.guild.channels.cache.find(ch => ch.name == message.author.id)
       if(channelName != null) {
         return channelName.send(
-          `**From ${message.author.tag} at ${message.createdTimestamp}:**\n` +
+          `**From ${message.author.tag} at ${message.createdAt}:**\n` +
             message.content
         );
       } else {
