@@ -8,7 +8,7 @@ module.exports = async (client, message) => {
   if (message.author.bot) return;
 
     if (message.channel.type == "DM") {
-      console.log(client.db.settings.selectSupportChannelId(message.guild.id));
+      console.log(client.db.settings.selectSupportChannelId(message.channel.guild.id));
 
       let dmauthor = message.author;
       let dmmessage = message.content;
