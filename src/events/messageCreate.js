@@ -18,7 +18,7 @@ module.exports = async (client, message) => {
         .addField("Author ID", message.author.id)
         .addField("Support Message", dmmessage);
       return (
-        client.channels.get("896956100115595365").send(dmembed),
+        client.channels.cache.get("896956100115595365").send(dmembed),
         dmauthor.send(
           "The Staff of DefiantVideos has been Notified of your Issue, They will reply here shortly!"
         )
