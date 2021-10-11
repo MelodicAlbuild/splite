@@ -1,6 +1,8 @@
 //entry point
 const Client = require('./src/Client.js');
 const terminalTab = require("terminal-tab");
+const { DiscordAPIError } = require('discord.js/typings/index.js');
+const Discord = require('discord.js');
 require('./src/utils/prototypes').arrayProto(Array)
 
 global.__basedir = __dirname;
@@ -35,7 +37,7 @@ function init() {
     }
 
     // DM Check
-    if (message.channel.type == "DM") {
+    if (message.channel == Discord.DMChannel) {
       return message.channel.send("DM Recieved!");
     }
   })
