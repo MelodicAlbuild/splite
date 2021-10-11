@@ -22,6 +22,13 @@ function init() {
   client.loadCommands('./src/commands/commands');
   client.loadSlashCommands('./src/commands/slashCommands');
   client.loadTopics('./data/geoguessr');
+
+  client.on('messageCreate', (message) => {
+    if(message.webhookId){
+      console.log(message);
+    }
+  })
+
   client.login(client.token);
 }
 
