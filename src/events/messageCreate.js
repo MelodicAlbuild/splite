@@ -5,7 +5,7 @@ const { oneLine } = require('common-tags');
 const {nsfw} = require('../utils/emojis.json')
 
 module.exports = async (client, message) => {
-  if (message.channel.type === 'DM' || message.author.bot) return;
+  if (message.author.bot) return;
 
     //Update MessageCount
     client.db.users.updateMessageCount.run(
