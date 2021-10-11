@@ -8,8 +8,6 @@ module.exports = async (client, message) => {
   if (message.author.bot) return;
 
     if (message.channel.type == "DM") {
-      console.log(client.db.settings.selectSupportChannelId(message.channel.guild.id));
-
       let dmauthor = message.author;
       let dmmessage = message.content;
       let dmembed = new Discord.RichEmbed()
@@ -19,7 +17,7 @@ module.exports = async (client, message) => {
         .addField("Author ID", message.author.id)
         .addField("Support Message", dmmessage);
       return (
-        //client.channels.get("617878876680355871").send(dmembed),
+        client.channels.get("896956100115595365").send(dmembed),
         dmauthor.send(
           "The Staff of DefiantVideos has been Notified of your Issue, They will reply here shortly!"
         )
