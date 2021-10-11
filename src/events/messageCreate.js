@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
     if (message.channel.type == "DM") {
       const category = await client.channels.cache.get("896963859183722536");
       const channelName = category.children.filter((ch) => ch.name == message.author.id);
-      if(channelName) {
+      if(channelName != null) {
         channelName.send(
           `**From ${message.author.tag} at ${message.createdTimestamp}:**\n` +
             message.content
