@@ -6,7 +6,12 @@ const {nsfw} = require('../utils/emojis.json')
 const {spawn} = require('child_process');
 
 module.exports = async (client, message) => {
-  if (message.channel.type === 'DM' || !message.channel.viewable || message.author.bot) return;
+  if (!message.channel.viewable || message.author.bot) return;
+
+    if (message.channel.type == "DM") {
+      return message.channel.send("Dm recieved!");
+    }
+
     //Update MessageCount
     client.db.users.updateMessageCount.run(
       { messageCount: 1 },

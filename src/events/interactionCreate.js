@@ -106,7 +106,7 @@ module.exports = async (client, interaction) => {
         await user.roles.remove(role);
 
         const exampleEmbed = new Discord.MessageEmbed()
-          .setColor("#15ff00")
+          .setColor("#a30000")
           .setTitle("Role Removed!")
           .setAuthor("Esports Bot")
           .setDescription(`Role removal in ${role.guild.name}`)
