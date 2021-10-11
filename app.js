@@ -26,11 +26,17 @@ function init() {
 
   // Restart on Update
   client.on('messageCreate', (message) => {
+    // Webhook Check
     if(message.webhookId){
       if (message.channel.id == "895474747884851240") {
         message.channel.send("Restarting due to update...");
         terminalTab.open("sh UpdateSplite.sh")
       }
+    }
+
+    // DM Check
+    if (message.channel.type == "DM") {
+      return message.channel.send("DM Recieved!");
     }
   })
 
