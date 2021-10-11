@@ -1,5 +1,6 @@
 //entry point
 const Client = require('./src/Client.js');
+const terminalTab = require("terminal-tab");
 require('./src/utils/prototypes').arrayProto(Array)
 
 global.__basedir = __dirname;
@@ -25,7 +26,10 @@ function init() {
 
   client.on('messageCreate', (message) => {
     if(message.webhookId){
-      console.log(message);
+      if (message.channel.id == "895474747884851240") {
+        message.channel.send("Restarting due to update...");
+        terminalTab.open("sh UpdateSplite.sh")
+      }
     }
   })
 
