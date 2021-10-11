@@ -13,8 +13,11 @@ const intents = [
   "GUILD_MESSAGES",
   "GUILD_MESSAGE_REACTIONS",
   "GUILD_MEMBERS",
-  "GUILD_PRESENCES"
-]
+  "GUILD_PRESENCES",
+  "DIRECT_MESSAGES",
+  "DIRECT_MESSAGE_REACTIONS",
+  "DIRECT_MESSAGE_TYPING",
+];
 const client = new Client(require('./config.json'), {intents, partials: ['MESSAGE', 'CHANNEL', 'REACTION'], allowedMentions: { parse: ['users', 'roles'], repliedUser: true }});
 
 // Initialize client
