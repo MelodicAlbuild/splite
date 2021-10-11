@@ -9,22 +9,33 @@ module.exports = async (client, message) => {
   if (message.author.bot) return;
 
     if (message.channel.type == "DM") {
-      let dmauthor = message.author;
-      let dmmessage = message.content;
-      let dmembed = new Discord.MessageEmbed()
-        .setTitle("Incoming Support Request")
-        .setColor("#00ffff")
-        .addField("Author", message.author.username)
-        .addField("Author ID", message.author.id)
-        .addField("Support Message", dmmessage);
-      return (
-        client.channels.cache
-          .get("896956100115595365")
-          .send({ embeds: [dmembed] }),
-        dmauthor.send(
-          "The Staff have been Notified of your Issue, They will reply here shortly!"
-        )
-      );
+      const category = await client.channels.cache.get("896963859183722536");
+      const channelName = category.children.filter((ch) => ch.name == message.author.id);
+      if(channelName) {
+        channelName.send(
+          `**From ${message.author.tag} at ${message.createdTimestamp}:**\n` +
+            message.content
+        );
+      } else {
+        category.guild.channels.create(message.author.id, {
+          type: 'GUILD_TEXT'
+        }).then(c => c.setParent(category.id)).then(cha => {
+          let dmauthor = message.author;
+          let dmmessage = message.content;
+          let dmembed = new Discord.MessageEmbed()
+            .setTitle("Incoming Support Request")
+            .setColor("#00ffff")
+            .addField("Author", message.author.username)
+            .addField("Author ID", message.author.id)
+            .addField("Support Message", dmmessage);
+          return (
+            cha.send({ embeds: [dmembed] }),
+            dmauthor.send(
+              "The Staff have been Notified of your Issue, They will reply here shortly!"
+            )
+          );
+        })
+      }
     }
 
     //Update MessageCount
