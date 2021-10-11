@@ -11,9 +11,9 @@ module.exports = async (client, message) => {
     if (message.channel.type == "DM") {
       let channelName = null;
       const category = await client.channels.cache.get("896963859183722536");
-      channelName = category.guild.channels.cache.find(ch => ch.name == message.author.id)
+      channelName = await category.guild.channels.cache.find(ch => ch.name == message.author.id)
       if(channelName != null) {
-        channelName.send(
+        return channelName.send(
           `**From ${message.author.tag} at ${message.createdTimestamp}:**\n` +
             message.content
         );
