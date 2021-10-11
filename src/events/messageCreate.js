@@ -3,12 +3,11 @@ const { online, dnd } = require('../utils/emojis.json')
 const moment = require('moment')
 const { oneLine } = require('common-tags');
 const {nsfw} = require('../utils/emojis.json')
-const {spawn} = require('child_process');
 
 module.exports = async (client, message) => {
-  if (!message.channel.viewable || message.author.bot) return;
+  if (message.author.bot) return;
 
-    if (message.channel.type == "DM") {
+    if (message.channel.type === "DM") {
       console.log("Boop")
       return message.author.send("Dm recieved!");
     }
