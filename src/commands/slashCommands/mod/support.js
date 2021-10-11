@@ -36,9 +36,9 @@ module.exports = class reactionMenu extends Command {
 
   async run(interaction, args) {
       let user1 = interaction.client.users.cache.get(args[0].value);
-      await user1.send(args[1].value);
+      await user1.send(`**From ${inteaction.user.tag}, in ${interaction.guild.name}:**\n` + args[1].value);
       await interaction.reply({
-        content: `Message sent to <@${args[0].value}> from **${interaction.member.user.tag}**.`,
+        content: `Message sent to <@${args[0].value}> from **${interaction.user.tag}**.`,
       });
   }
 };
