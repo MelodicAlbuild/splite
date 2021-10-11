@@ -45,6 +45,7 @@ module.exports = async (client) => {
       guild.name,
       guild.systemChannelID, // Default channel
       null, //confessions_channel_id
+      guild.supportChannelID, // Support Channel
       guild.systemChannelID, // Welcome channel
       guild.systemChannelID, // Farewell channel
       guild.systemChannelID,  // Crown Channel
