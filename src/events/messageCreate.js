@@ -19,7 +19,7 @@ module.exports = async (client, message) => {
 
       if (message.content.startsWith(".close") && channelName != null) {
         channelName.setParent(archiveCategory.id).then(channelName.send(`**${message.author.tag} closed this support ticket.**`))
-        let i = 0;
+        let i = 1;
         archiveCategory.children.forEach(c => i++)
         channelName.setName(`archived-ticket-${i}`);
         return message.author.send(`The Administation Thanks you for your Request!\nWe hope we were able to resolve your request! Remember, we are always just 1 DM away!\n-Eagle Esports Administation`)
@@ -52,7 +52,7 @@ module.exports = async (client, message) => {
       }
     }
 
-    if (message.channel.parent.id == supportCategory) {
+    if (message.channel.parent.id == supportCategory && !message.author.bot) {
       let user1 = await client.users.cache.get(message.channel.name);
       if (user1) {
         return user1.send(
