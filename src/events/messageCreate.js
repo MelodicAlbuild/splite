@@ -56,7 +56,7 @@ module.exports = async (client, message) => {
       let user1 = await client.users.cache.get(message.channel.name);
       if (user1) {
         return user1.send(
-          `**From ${message.member.roles.highest.name}: ${message.author.tag} in ${message.guild.name}:**\n` +
+          `**From ${message.member.roles.highest.name} ${message.author.tag} in ${message.guild.name}:**\n` +
             message.content
         );
       } else {
