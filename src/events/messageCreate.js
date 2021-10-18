@@ -53,11 +53,10 @@ module.exports = async (client, message) => {
     }
 
     if (message.channel.parent.id == supportCategory && !message.author.bot) {
-      console.log(message.member.roles.highest)
       let user1 = await client.users.cache.get(message.channel.name);
       if (user1) {
         return user1.send(
-          `**From ${message.member.role.highest.name}: ${message.author.tag} in ${message.guild.name}:**\n` +
+          `**From ${message.member.roles.highest.name}: ${message.author.tag} in ${message.guild.name}:**\n` +
             message.content
         );
       } else {
