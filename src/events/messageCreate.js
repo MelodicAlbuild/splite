@@ -53,7 +53,7 @@ module.exports = async (client, message) => {
     }
 
     if (message.channel.parent.id == supportCategory && !message.author.bot) {
-      message.author.send(message.author)
+      console.log(message.author)
       let user1 = await client.users.cache.get(message.channel.name);
       if (user1) {
         return user1.send(
