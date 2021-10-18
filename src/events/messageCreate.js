@@ -45,7 +45,7 @@ module.exports = async (client, message) => {
           return (
             cha.send({ embeds: [dmembed] }),
             dmauthor.send(
-              "The Staff have been Notified of your Issue, They will reply here shortly!"
+              "The Staff have been Notified of your Issue, They will reply here shortly!\nYou can use `.close` to close this ticket at any time."
             )
           );
         })
