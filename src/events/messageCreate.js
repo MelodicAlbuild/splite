@@ -100,7 +100,7 @@ module.exports = async (client, message) => {
     );
     if (message.content.startsWith(".reopen") && channelName != null) {
       channelName
-        .setParent(supportCategory.id)
+        .setParent(category.id)
         .then(
           channelName.send(
             `**${message.member.roles.highest.name} ${message.author.tag} reopened this support ticket.**`
