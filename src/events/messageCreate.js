@@ -53,6 +53,32 @@ module.exports = async (client, message) => {
     }
 
     if (message.channel.parent.id == supportCategory && !message.author.bot) {
+      let channelName = null;
+      const category = await client.channels.cache.get(supportCategory);
+      const archiveCategory = await client.channels.cache.get(supportArchive);
+      channelName = await category.guild.channels.cache.find(
+        (ch) => ch.name == message.author.id
+      );
+
+      if (message.content.startsWith(".close") && channelName != null) {
+        channelName
+          .setParent(archiveCategory.id)
+          .then(
+            channelName.send(
+              `**${message.author.tag} closed this support ticket.**`
+            )
+          );
+        let i = 1;
+        archiveCategory.children.forEach((c) => i++);
+        channelName.setName(`archived-ticket-${i}`);
+        let channelMember = client.users.cache.find(
+          (user) => user.id === channelName.name
+        );
+        return channelMember.send(
+          `**${message.member.roles.highest.name} ${message.author.tag} closed this support ticket.**`
+        );
+      }
+
       let user1 = await client.users.cache.get(message.channel.name);
       if (user1) {
         return user1.send(
