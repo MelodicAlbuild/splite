@@ -52,7 +52,7 @@ module.exports = async (client, message) => {
       }
     }
 
-  if (!message.channel.type == "DM" && message.channel.parent.id == supportCategory && !message.author.bot) {
+  if (message.channel.parent.id == supportCategory && !message.author.bot) {
       let channelName = null;
       const category = await client.channels.cache.get(supportCategory);
       const archiveCategory = await client.channels.cache.get(supportArchive);
