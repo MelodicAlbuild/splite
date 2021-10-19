@@ -32,7 +32,8 @@ module.exports = async (client, message) => {
         );
       } else {
         category.guild.channels.create(message.author.id, {
-          type: 'GUILD_TEXT'
+          type: 'GUILD_TEXT',
+          topic: message.author.id
         }).then(c => c.setParent(category.id)).then(cha => {
           let dmauthor = message.author;
           let dmmessage = message.content;
@@ -65,7 +66,7 @@ module.exports = async (client, message) => {
           .setParent(archiveCategory.id)
           .then(
             channelName.send(
-              `**${message.author.tag} closed this support ticket.**`
+              `**${message.member.roles.highest.name} ${message.author.tag} closed this support ticket.**`
             )
           );
         let i = 1;
@@ -89,12 +90,40 @@ module.exports = async (client, message) => {
         return;
       }
     }
-      //Update MessageCount
-      client.db.users.updateMessageCount.run(
-        { messageCount: 1 },
-        message.author.id,
-        message.guild.id
+
+  if (message.channel.parent.id == supportArchive && !message.author.bot) {
+    let channelName = null;
+    const category = await client.channels.cache.get(supportCategory);
+    const archiveCategory = await client.channels.cache.get(supportArchive);
+    channelName = await category.guild.channels.cache.find(
+      (ch) => ch.name == message.channel.name
+    );
+    if (message.content.startsWith(".reopen") && channelName != null) {
+      channelName
+        .setParent(supportCategory.id)
+        .then(
+          channelName.send(
+            `**${message.member.roles.highest.name} ${message.author.tag} reopened this support ticket.**`
+          )
+        );
+      let i = 1;
+      archiveCategory.children.forEach((c) => i++);
+      channelName.setName(channelName.topic);
+      let channelMember = client.users.cache.find(
+        (user) => user.id === channelName.topic
       );
+      return channelMember.send(
+        `**${message.member.roles.highest.name} ${message.author.tag} reopened a support ticket.**`
+      );
+    }
+  }
+
+  //Update MessageCount
+  client.db.users.updateMessageCount.run(
+    { messageCount: 1 },
+    message.author.id,
+    message.guild.id
+  );
 
   const {
     afk: currentStatus,
