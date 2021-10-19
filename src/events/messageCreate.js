@@ -5,8 +5,8 @@ const { oneLine } = require('common-tags');
 const {nsfw} = require('../utils/emojis.json')
 const Discord = require('discord.js');
 
-const supportCategory = "896963859183722536";
-const supportArchive = "896974461880901692";
+const supportCategory = "900035224438706186";
+const supportArchive = "900035474603794442";
 
 module.exports = async (client, message) => {
   if (message.author.bot) return;
