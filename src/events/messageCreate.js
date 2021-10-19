@@ -130,7 +130,7 @@ module.exports = async (client, message) => {
       const collector = collectionMessage.createReactionCollector({ filter, time: 15000 });
 
       collector.on('collect', (reaction, user) => {
-        if (reaction.name == '✅') {
+        if (reaction.emoji.name == '✅') {
           channelName.delete();
         } else {
           return;
@@ -138,6 +138,7 @@ module.exports = async (client, message) => {
       });
 
       collector.on('end', collected => {
+        message.delete();
 	      collectionMessage.delete();
       });
     }
