@@ -80,6 +80,10 @@ module.exports = async (client, message) => {
         );
       }
 
+    if (message.content.startsWith(".ignore") && channelName != null) {
+      return message.edit(message.slice(8)).then(result => message.react('❗'));
+    }
+
       let user1 = await client.users.cache.get(message.channel.name);
       if (user1) {
         return user1.send(
