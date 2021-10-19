@@ -61,6 +61,7 @@ module.exports = async (client, message) => {
       );
 
       if (message.content.startsWith(".close") && channelName != null) {
+        console.log(channelName.name)
         channelName
           .setParent(archiveCategory.id)
           .then(
