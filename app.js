@@ -38,7 +38,13 @@ function init() {
     }
   })
 
-  client.login(client.token);
+  client.login(client.token).then(result => {
+    let guild = client.guilds.cache.get('562836027522154498');
+    let channel = guild.channels.cache.get('895474747884851240')
+    if(channel) {
+      channel.send('Bot Restarted Successfully')
+    }
+  });
 }
 
 init();
