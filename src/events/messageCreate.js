@@ -57,7 +57,7 @@ module.exports = async (client, message) => {
       const category = await client.channels.cache.get(supportCategory);
       const archiveCategory = await client.channels.cache.get(supportArchive);
       channelName = await category.guild.channels.cache.find(
-        (ch) => ch.name == message.author.id
+        (ch) => ch.name == message.channel.name
       );
 
       if (message.content.startsWith(".close") && channelName != null) {
