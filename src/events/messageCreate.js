@@ -115,6 +115,31 @@ module.exports = async (client, message) => {
       return channelMember.send(
         `**${message.member.roles.highest.name} ${message.author.tag} reopened a support ticket.**`
       );
+    } else if(message.content.startsWith(".delete") && channelName != null) {
+      let collectionMessage;
+      message.channel.send('Are you sure you want to Delete this Channel?').then(msg => {
+        msg.react('✅')
+        msg.react('❌')
+        collectionMessage = msg;
+      })
+
+      const filter = (reaction, user) => {
+        return (reaction.emoji.name === '❌' || reaction.emoji.name === '✅') && user.id === message.author.id;
+      };
+
+      const collector = collectionMessage.createReactionCollector({ filter, time: 15000 });
+
+      collector.on('collect', (reaction, user) => {
+        if (reaction.name == '✅') {
+          channelName.delete();
+        } else {
+          return;
+        }
+      });
+
+      collector.on('end', collected => {
+	      collectionMessage.delete();
+      });
     }
   }
 
