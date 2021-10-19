@@ -116,31 +116,28 @@ module.exports = async (client, message) => {
         `**${message.member.roles.highest.name} ${message.author.tag} reopened a support ticket.**`
       );
     } else if(message.content.startsWith(".delete") && channelName != null) {
-      let collectionMessage;
-      message.channel.send('Are you sure you want to Delete this Channel?').then(msg => {
-        msg.react('✅')
-        msg.react('❌')
-        collectionMessage = msg;
+      message.channel.send('Are you sure you want to Delete this Channel?').then(async function (msg) {
+        await msg.react('✅')
+        await msg.react('❌')
+        const filter = (reaction, user) => {
+          return reaction.emoji.name === '❌' || reaction.emoji.name === '✅';
+        };
+
+        const collector = msg.createReactionCollector({ filter, time: 15000 });
+
+        collector.on('collect', (reaction, user) => {
+          if (reaction.emoji.name == '✅') {
+            channelName.delete();
+          } else {
+            return;
+          }
+        });
+
+        collector.on('end', collected => {
+          message.delete();
+          msg.delete();
+        });
       })
-
-      const filter = (reaction, user) => {
-        return (reaction.emoji.name === '❌' || reaction.emoji.name === '✅') && user.id === message.author.id;
-      };
-
-      const collector = collectionMessage.createReactionCollector({ filter, time: 15000 });
-
-      collector.on('collect', (reaction, user) => {
-        if (reaction.emoji.name == '✅') {
-          channelName.delete();
-        } else {
-          return;
-        }
-      });
-
-      collector.on('end', collected => {
-        message.delete();
-	      collectionMessage.delete();
-      });
     }
   }
 
