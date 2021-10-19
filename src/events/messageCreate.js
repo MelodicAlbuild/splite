@@ -129,7 +129,8 @@ module.exports = async (client, message) => {
           if (reaction.emoji.name == '✅') {
             channelName.delete();
           } else {
-            return;
+            message.delete();
+            msg.delete();
           }
         });
 
