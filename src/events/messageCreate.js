@@ -27,9 +27,9 @@ module.exports = async (client, message) => {
 
       if(channelName != null) {
         return channelName.send(
-          `**From ${message.author.tag} on ${message.createdAt}:**\n` +
+          `**From ${message.author.tag}:**\n` +
             message.content
-        );
+        ).then(result => message.react('✅'));
       } else {
         category.guild.channels.create(message.author.id, {
           type: 'GUILD_TEXT',
@@ -48,7 +48,7 @@ module.exports = async (client, message) => {
             dmauthor.send(
               "The Staff have been Notified of your Issue, They will reply here shortly!\nYou can use `.close` to close this ticket at any time."
             )
-          );
+          ).then(result => message.react('✅'));
         })
       }
     }
