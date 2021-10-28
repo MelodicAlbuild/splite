@@ -10,7 +10,7 @@ module.exports = class TestCommand extends Command {
             ownerOnly: true
         });
     }
-    run(message, args) {
+    async run(message, args) {
         const allButtons = [];
         const button = new MessageButton()
             .setCustomId(`Test`)
