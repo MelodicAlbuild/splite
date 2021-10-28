@@ -20,18 +20,25 @@ module.exports = class TestCommand extends Command {
   async run(message, args) {
     const allButtons = [];
     const button = new MessageButton()
-      .setCustomId(`Test`)
-      .setLabel(`Test`)
-      .setStyle("PRIMARY");
-
+      .setCustomId(`Minecraft`)
+      .setLabel(`Minecraft`)
+      .setStyle("SUCCESS");
     button.emoji = { name: "grassblock", id: "903101079300997181" };
-
     allButtons.push(button);
+
+    const button2 = new MessageButton()
+      .setCustomId(`Madden`)
+      .setLabel(`Madden`)
+      .setStyle("PRIMARY");
+    button2.emoji = { name: "nfl", id: "903102675191742494" };
+    allButtons.push(button2);
 
     let rows = new Array(allButtons.length).fill().map((r) => {
       const row = new MessageActionRow();
-      const buttons = allButtons[0];
-      row.addComponents(buttons);
+      const buttons = allButtons.splice(0);
+      buttons.forEach((b) => {
+        row.addComponents(b);
+      });
       return row;
     });
     let msg = await message.channel.send({
@@ -50,23 +57,17 @@ module.exports = class TestCommand extends Command {
         componentType: "BUTTON",
       })
       .then((interaction) => {
-        // var json = serialize(interaction)
-        // var fs = require("fs");
-        // fs.writeFile(
-        //   "./exports.json",
-        //   json,
-        //   "utf8",
-        //   function readFileCallback(err) {
-        //     if (err) {
-        //       console.log(err);
-        //     }
-        //   }
-        // );
-        // var attachments = new MessageAttachment();
-        // attachments.setFile("./exports.json");
-
-        // interaction.channel.send({ files: [attachments], content: "Error Type" });
-        interaction.member.send(`You selected ${interaction.customId}!`);
+        if(interaction.customId == "Minecraft") {
+            interaction.member.roles.add(
+              guild.roles.fetch("903103995294408734")
+            );
+            interaction.member.send(`Temp Message`)
+        } else if(interaction.customId == "Madden") {
+            interaction.member.roles.add(
+              guild.roles.fetch("903103848506359928")
+            );
+            interaction.member.send(`Temp Message`);
+        }
       })
       .catch((err) => console.log(err));
   }
