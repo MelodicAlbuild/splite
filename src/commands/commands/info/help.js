@@ -101,7 +101,8 @@ module.exports = class HelpCommand extends Command {
                     }
 
                     allButtons.push(button)
-                }}
+                }
+            }
             const total = Object.values(commands).reduce((a, b) => a + b.length, 0) - commands[OWNER].length;
             const size = message.client.commands.size - commands[OWNER].length;
 
