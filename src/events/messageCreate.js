@@ -75,9 +75,11 @@ module.exports = async (client, message) => {
         let channelMember = client.users.cache.find(
           (user) => user.id === channelName.name
         );
-        return channelMember.send(
-          `**${message.member.roles.highest.name} ${message.author.tag} closed this support ticket.**`
-        );
+        return channelMember
+          .send(
+            `**${message.member.roles.highest.name} ${message.author.tag} closed this support ticket.**`
+          )
+          .then((result) => result.react("🚫"));
       }
 
       if (message.content.startsWith(".ignore") && channelName != null) {
