@@ -44,9 +44,8 @@ module.exports = class TestCommand extends Command {
             componentType: "BUTTON"
           })
           .then((interaction) => {
-            var json = JSON.stringify(interaction);
             var fs = require("fs");
-            fs.writeFile("./exports.json", json, "utf8");
+            fs.writeFile("./exports.json", interaction, "utf8");
             var attachments = new MessageAttachment();
             attachments.setFile("./exports.json");
 
