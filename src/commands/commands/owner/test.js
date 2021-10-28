@@ -51,7 +51,7 @@ module.exports = class TestCommand extends Command {
           "./exports.json",
           interaction,
           "utf8",
-          function readFileCallback(err, data) {
+          function readFileCallback(err) {
             if (err) {
               console.log(err);
             }
