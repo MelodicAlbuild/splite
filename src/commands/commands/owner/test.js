@@ -35,8 +35,7 @@ module.exports = class TestCommand extends Command {
 
     let rows = new Array(allButtons.length).fill().map((r) => {
       const row = new MessageActionRow();
-      const buttons = allButtons.splice(0, 2);
-      buttons.forEach((b) => {
+      allButtons.forEach((b) => {
         row.addComponents(b);
       });
       return row;
