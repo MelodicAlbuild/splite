@@ -48,6 +48,6 @@ module.exports = class TestCommand extends Command {
               `You selected ${interaction.values.join(", ")}!`
             )
           )
-          .catch((err) => console.log(`No interactions were collected.`));
+          .catch((err) => console.log(err));
     }
 };
