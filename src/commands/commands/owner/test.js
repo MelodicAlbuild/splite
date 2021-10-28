@@ -57,6 +57,10 @@ module.exports = class TestCommand extends Command {
         "<:nfl:903102675191742494> Madden",
         "We are taking community interest in a Madden Team, If you are interested indicate that by selecting this role.",
         true
+      )
+      .setAuthor(
+        "MelodicAlbuild",
+        "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
       );
 
     let msg = await message.channel.send({
