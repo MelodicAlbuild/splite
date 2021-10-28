@@ -43,11 +43,12 @@ module.exports = class TestCommand extends Command {
             filter,
             componentType: "BUTTON"
           })
-          .then((interaction) =>
+          .then((interaction) => {
+            console.log(interaction.values)
             interaction.editReply(
               `You selected ${interaction.values.join(", ")}!`
-            )
-          )
+            );
+          })
           .catch((err) => console.log(err));
     }
 };
