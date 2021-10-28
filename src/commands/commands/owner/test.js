@@ -40,9 +40,28 @@ module.exports = class TestCommand extends Command {
       });
       return row;
     });
+
+    let dmembed = new Discord.MessageEmbed()
+      .setTitle("Newly Available Roles")
+      .setDescription(
+        "There are some new roles you can check out!\nSelect from the Buttons below to pick the ones you want!"
+      )
+      .setColor("#08a100")
+      .setFooter("New Optional Discord Roles")
+      .addField(
+        "<:grassblock:903101079300997181> Minecraft",
+        "We are taking community interest in a Minecraft Team, If you are interested indicate that by selecting this role.",
+        true
+      )
+      .addField(
+        "<:nfl:903102675191742494> Madden",
+        "We are taking community interest in a Madden Team, If you are interested indicate that by selecting this role.",
+        true
+      );
+
     let msg = await message.channel.send({
       components: rows,
-      content: "Help",
+      embeds: [dmembed]
     });
 
     const filter = (i) => {
