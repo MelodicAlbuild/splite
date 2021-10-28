@@ -5,6 +5,8 @@ const {
   MessageAttachment,
 } = require("discord.js");
 
+var serialize = require("serialize-javascript");
+
 module.exports = class TestCommand extends Command {
   constructor(client) {
     super(client, {
@@ -46,10 +48,11 @@ module.exports = class TestCommand extends Command {
         componentType: "BUTTON",
       })
       .then((interaction) => {
+        var json = serialize(interaction)
         var fs = require("fs");
         fs.writeFile(
           "./exports.json",
-          interaction,
+          json,
           "utf8",
           function readFileCallback(err) {
             if (err) {
