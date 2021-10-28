@@ -25,9 +25,7 @@ module.exports = class TestCommand extends Command {
           .map((r) => {
             const row = new MessageActionRow();
             const buttons = allButtons[0];
-            buttons.forEach((b) => {
-              row.addComponents(b);
-            });
+            row.addComponents(buttons);
             return row;
           });
         let msg = await message.channel.send("Help", {
