@@ -28,8 +28,9 @@ module.exports = class TestCommand extends Command {
             row.addComponents(buttons);
             return row;
           });
-        let msg = await message.channel.send("Help", {
-          components: rows
+        let msg = await message.channel.send({
+          components: rows,
+          content: "Help"
         });
 
         const filter = (i) => {
