@@ -64,7 +64,7 @@ module.exports = class TestCommand extends Command {
         // attachments.setFile("./exports.json");
 
         // interaction.channel.send({ files: [attachments], content: "Error Type" });
-        interaction.editReply(`You selected ${interaction.customId}!`);
+        interaction.reply(`You selected ${interaction.customId}!`);
       })
       .catch((err) => console.log(err));
   }
