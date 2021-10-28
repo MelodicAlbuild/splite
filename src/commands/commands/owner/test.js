@@ -24,7 +24,7 @@ module.exports = class TestCommand extends Command {
       .setLabel(`Test`)
       .setStyle("PRIMARY");
 
-    button.emoji("903101079300997181");
+    button.emoji = { name: "grassblock", id: "903101079300997181" };
 
     allButtons.push(button);
 
