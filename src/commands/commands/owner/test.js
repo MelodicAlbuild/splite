@@ -34,7 +34,8 @@ module.exports = class TestCommand extends Command {
         });
 
         const filter = (i) => {
-          return i.deferUpdate();
+          i.deferUpdate();
+          return true;
         };
 
         msg
