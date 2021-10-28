@@ -58,12 +58,12 @@ module.exports = class TestCommand extends Command {
       .then((interaction) => {
         if(interaction.customId == "Minecraft") {
             interaction.member.roles.add(
-              guild.roles.fetch("903103995294408734")
+              interaction.guild.roles.fetch("903103995294408734")
             );
             interaction.member.send(`Temp Message`)
         } else if(interaction.customId == "Madden") {
             interaction.member.roles.add(
-              guild.roles.fetch("903103848506359928")
+              interaction.guild.roles.fetch("903103848506359928")
             );
             interaction.member.send(`Temp Message`);
         }
