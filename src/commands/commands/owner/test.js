@@ -55,15 +55,17 @@ module.exports = class TestCommand extends Command {
         filter,
         componentType: "BUTTON",
       })
-      .then((interaction) => {
+      .then(async (interaction) => {
         if(interaction.customId == "Minecraft") {
+            var role = await interaction.guild.roles.fetch("903103995294408734");
             interaction.member.roles.add(
-              interaction.guild.roles.fetch("903103995294408734")
+              role
             );
             interaction.member.send(`Temp Message`)
         } else if(interaction.customId == "Madden") {
+            var role = await interaction.guild.roles.fetch("903103848506359928");
             interaction.member.roles.add(
-              interaction.guild.roles.fetch("903103848506359928")
+              role
             );
             interaction.member.send(`Temp Message`);
         }
