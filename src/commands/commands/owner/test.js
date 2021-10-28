@@ -2,7 +2,7 @@ const Command = require("../../Command.js");
 const {
   MessageButton,
   MessageActionRow,
-  MessageAttachment,
+  MessageEmbed,
 } = require("discord.js");
 
 var serialize = require("serialize-javascript");
@@ -41,7 +41,7 @@ module.exports = class TestCommand extends Command {
       return row;
     });
 
-    let dmembed = new Discord.MessageEmbed()
+    let dmembed = new MessageEmbed()
       .setTitle("Newly Available Roles")
       .setDescription(
         "There are some new roles you can check out!\nSelect from the Buttons below to pick the ones you want!"
