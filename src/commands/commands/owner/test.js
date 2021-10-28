@@ -24,6 +24,8 @@ module.exports = class TestCommand extends Command {
       .setLabel(`Test`)
       .setStyle("PRIMARY");
 
+    button.emoji("903101079300997181");
+
     allButtons.push(button);
 
     let rows = new Array(allButtons.length).fill().map((r) => {
