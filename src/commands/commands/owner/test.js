@@ -1,5 +1,5 @@
 const Command = require('../../Command.js');
-const { MessageButton, MessageActionRow } = require("discord.js");
+const { MessageButton, MessageActionRow, MessageAttachment } = require("discord.js");
 
 module.exports = class TestCommand extends Command {
     constructor(client) {
@@ -44,7 +44,14 @@ module.exports = class TestCommand extends Command {
             componentType: "BUTTON"
           })
           .then((interaction) => {
-            console.log(interaction.values)
+            var json = JSON.stringify(interaction);
+            var fs = require("fs");
+            fs.writeFile("./exports.json", json, "utf8");
+            var attachments = new MessageAttachment();
+            attachments.setFile("./exports.json");
+
+            interaction.channel.send({files: [attachments]});
+
             interaction.editReply(
               `You selected ${interaction.values.join(", ")}!`
             );
