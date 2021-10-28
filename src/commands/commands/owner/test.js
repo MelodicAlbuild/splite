@@ -48,24 +48,23 @@ module.exports = class TestCommand extends Command {
         componentType: "BUTTON",
       })
       .then((interaction) => {
-        var json = serialize(interaction)
-        var fs = require("fs");
-        fs.writeFile(
-          "./exports.json",
-          json,
-          "utf8",
-          function readFileCallback(err) {
-            if (err) {
-              console.log(err);
-            }
-          }
-        );
-        var attachments = new MessageAttachment();
-        attachments.setFile("./exports.json");
+        // var json = serialize(interaction)
+        // var fs = require("fs");
+        // fs.writeFile(
+        //   "./exports.json",
+        //   json,
+        //   "utf8",
+        //   function readFileCallback(err) {
+        //     if (err) {
+        //       console.log(err);
+        //     }
+        //   }
+        // );
+        // var attachments = new MessageAttachment();
+        // attachments.setFile("./exports.json");
 
-        interaction.channel.send({ files: [attachments] });
-
-        interaction.editReply(`You selected ${interaction.values.join(", ")}!`);
+        // interaction.channel.send({ files: [attachments], content: "Error Type" });
+        interaction.editReply(`You selected ${interaction.customId}!`);
       })
       .catch((err) => console.log(err));
   }
