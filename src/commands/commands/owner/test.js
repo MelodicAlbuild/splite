@@ -33,7 +33,7 @@ module.exports = class TestCommand extends Command {
     button2.emoji = { name: "nfl", id: "903102675191742494" };
     allButtons.push(button2);
 
-    let rows = new Array(allButtons.length).fill().map((r) => {
+    let rows = new Array(1).fill().map((r) => {
       const row = new MessageActionRow();
       allButtons.forEach((b) => {
         row.addComponents(b);
