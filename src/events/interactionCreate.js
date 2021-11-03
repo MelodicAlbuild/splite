@@ -81,6 +81,34 @@ module.exports = async (client, interaction) => {
         ); // Run command
       }
     }
+  } else if(interaction.isButton()) {
+    let masterEmbed = new MessageEmbed()
+          .setTitle("Thank You!")
+          .setDescription(
+            "Thank you for showing interest in our new team ideas!"
+          )
+          .setAuthor(
+            "MelodicAlbuild",
+            "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
+          );
+
+        if(interaction.customId == "Minecraft") {
+            var role = await interaction.guild.roles.fetch("903103995294408734");
+            interaction.member.roles.add(
+              role
+            );
+            masterEmbed.setColor("#00731f");
+            masterEmbed.addField("Role Selected", "Minecraft");
+            interaction.member.send({ embeds: [masterEmbed] });
+        } else if(interaction.customId == "Madden") {
+            var role = await interaction.guild.roles.fetch("903103848506359928");
+            interaction.member.roles.add(
+              role
+            );
+            masterEmbed.setColor("#102cb5");
+            masterEmbed.addField("Role Selected", "Madden");
+            interaction.member.send({embeds: [masterEmbed]});
+        }
   }
   if (interaction.customId === "roleList") {
     var user = await interaction.guild.members.cache.get(interaction.user.id);
