@@ -67,5 +67,6 @@ module.exports = class TestCommand extends Command {
       components: rows,
       embeds: [dmembed]
     });
+    message.delete();
   }
 };
