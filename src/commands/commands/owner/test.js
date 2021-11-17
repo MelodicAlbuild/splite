@@ -99,12 +99,14 @@ module.exports = class TestCommand extends Command {
         "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
       );
 
-    dmembed.addField(
-      `<:${dObj.emoji.name}:${dObj.emoji.id}> ${dObj.name}`,
+      lJson.buttons.forEach((obj) => {
+        dmembed.addField(
+      `<:${obj.emoji.name}:${obj.emoji.id}> ${obj.name}`,
       "A New Fancy Role you can Play With! Check out the roles page so you can find out what it did.",
       true
     );
 
+      })
     let msg = await message.channel.send({
       components: rows,
       embeds: [dmembed]
