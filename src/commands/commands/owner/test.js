@@ -60,7 +60,7 @@ module.exports = class TestCommand extends Command {
       .setCustomId(obj.roleId.toString())
       .setLabel(obj.name)
       .setStyle(obj.color)
-      .setURL("");
+      .setURL("https://prosper-isd.net");
       button.emoji = { name: obj.emoji.name, id: obj.emoji.id};
       allButtons.push(button);
     })
