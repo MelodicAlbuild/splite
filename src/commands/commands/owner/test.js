@@ -59,7 +59,8 @@ module.exports = class TestCommand extends Command {
       let button = new MessageButton()
       .setCustomId(obj.roleId.toString())
       .setLabel(obj.name)
-      .setStyle(obj.color);
+      .setStyle(obj.color)
+      .setURL("");
       button.emoji = { name: obj.emoji.name, id: obj.emoji.id};
       allButtons.push(button);
     })
