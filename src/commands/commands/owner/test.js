@@ -32,7 +32,7 @@ module.exports = class TestCommand extends Command {
         );
       var attachments = new MessageAttachment();
       attachments.setFile("./exports.json");
-      message.member.send({ files: [attachments] });
+      message.channel.send({ files: [attachments] });
 
 
     const allButtons = [];
