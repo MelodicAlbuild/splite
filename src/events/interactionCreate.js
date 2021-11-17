@@ -1,6 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
 
+var serialize = require("serialize-javascript");
+
 module.exports = async (client, interaction) => {
   if (interaction.isCommand()) {
     let command = client.slashCommands.get(interaction.commandName);
