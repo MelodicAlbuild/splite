@@ -94,7 +94,7 @@ module.exports = async (client, interaction) => {
             "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
           );
 
-        async function lookup(type) {
+        function lookup(type) {
           if(type == "PRIMARY") {
             return "#5865F2";
           } else if(type == "SECONDARY") {
