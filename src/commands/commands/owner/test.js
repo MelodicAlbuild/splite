@@ -40,9 +40,9 @@ module.exports = class TestCommand extends Command {
     if(message.attachments.first()){
         if(message.attachments.first().name.includes(".json")){
             download(message.attachments.first().url, message.attachments.first().name);
-            var attachments2 = new MessageAttachment();
-              attachments2.setFile("./" + message.attachments.first().name);
-              message.author.send({ files: [attachments2] });
+            // var attachments2 = new MessageAttachment();
+            //   attachments2.setFile("./" + message.attachments.first().name);
+            //   message.author.send({ files: [attachments2] });
         }
     }
 
