@@ -118,21 +118,23 @@ module.exports = async (client, interaction) => {
           }
         })
 
-        var fs = require("fs");
-        var json = serialize(interaction.message);
-        fs.writeFile(
-          "./exports.json",
-          json,
-          "utf8",
-          function readFileCallback(err, data) {
-            if (err) {
-              console.log(err);
-            }
-          }
-        );
-        var attachments = new MessageAttachment();
-        attachments.setFile("./exports.json");
-        interaction.member.send({ files: [attachments] });
+        interaction.deferUpdate();
+
+        // var fs = require("fs");
+        // var json = serialize(interaction.message);
+        // fs.writeFile(
+        //   "./exports.json",
+        //   json,
+        //   "utf8",
+        //   function readFileCallback(err, data) {
+        //     if (err) {
+        //       console.log(err);
+        //     }
+        //   }
+        // );
+        // var attachments = new MessageAttachment();
+        // attachments.setFile("./exports.json");
+        // interaction.member.send({ files: [attachments] });
   }
   if (interaction.customId === "roleList") {
     var user = await interaction.guild.members.cache.get(interaction.user.id);

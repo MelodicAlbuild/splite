@@ -8,6 +8,7 @@ const {
 
 var serialize = require("serialize-javascript");
 const request = require(`request`);
+const interactionCreate = require("../../../events/interactionCreate.js");
 
 module.exports = class TestCommand extends Command {
   constructor(client) {
@@ -20,21 +21,21 @@ module.exports = class TestCommand extends Command {
     });
   }
   async run(message, args) {
-    var fs = require("fs");
-      var json = serialize(message);
-      fs.writeFile(
-          "./exports.json",
-          json,
-          "utf8",
-          function readFileCallback(err, data) {
-            if (err) {
-              console.log(err);
-            }
-          }
-        );
-      var attachments = new MessageAttachment();
-      attachments.setFile("./exports.json");
-      message.author.send({ files: [attachments] });
+    // var fs = require("fs");
+    //   var json = serialize(message);
+    //   fs.writeFile(
+    //       "./exports.json",
+    //       json,
+    //       "utf8",
+    //       function readFileCallback(err, data) {
+    //         if (err) {
+    //           console.log(err);
+    //         }
+    //       }
+    //     );
+    //   var attachments = new MessageAttachment();
+    //   attachments.setFile("./exports.json");
+    //   message.author.send({ files: [attachments] });
 
     if(message.attachments.first()){
         if(message.attachments.first().name.includes(".json")){
