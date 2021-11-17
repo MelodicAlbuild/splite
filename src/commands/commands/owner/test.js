@@ -50,6 +50,11 @@ module.exports = class TestCommand extends Command {
     var fs = require("fs");
 
     async function download(url, name){
+      var file = new File("./" + name)
+      if(file.exists()) {
+        file.delete();
+      }
+
       await request.get(url)
         .on('error', console.error)
         .pipe(fs.createWriteStream("./" + name));
