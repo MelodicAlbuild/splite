@@ -120,8 +120,6 @@ module.exports = async (client, interaction) => {
 
         let mainMessage = await client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471');
 
-        interaction.member.send(mainMessage);
-
         let numberEmbed = new MessageEmbed()
           .setTitle("Selected Roles")
           .setDescription(
@@ -138,21 +136,21 @@ module.exports = async (client, interaction) => {
 
         interaction.deferUpdate();
 
-        // var fs = require("fs");
-        // var json = serialize(interaction.message);
-        // fs.writeFile(
-        //   "./exports.json",
-        //   json,
-        //   "utf8",
-        //   function readFileCallback(err, data) {
-        //     if (err) {
-        //       console.log(err);
-        //     }
-        //   }
-        // );
-        // var attachments = new MessageAttachment();
-        // attachments.setFile("./exports.json");
-        // interaction.member.send({ files: [attachments] });
+        var fs = require("fs");
+        var json = serialize(mainMessage);
+        fs.writeFile(
+          "./exports.json",
+          json,
+          "utf8",
+          function readFileCallback(err, data) {
+            if (err) {
+              console.log(err);
+            }
+          }
+        );
+        var attachments = new MessageAttachment();
+        attachments.setFile("./exports.json");
+        interaction.member.send({ files: [attachments] });
   }
   if (interaction.customId === "roleList") {
     var user = await interaction.guild.members.cache.get(interaction.user.id);
