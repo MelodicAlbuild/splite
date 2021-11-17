@@ -118,6 +118,8 @@ module.exports = async (client, interaction) => {
           }
         })
 
+        client.channels.get('910639165392175114').send('Hello here!');
+
         interaction.deferUpdate();
 
         // var fs = require("fs");
