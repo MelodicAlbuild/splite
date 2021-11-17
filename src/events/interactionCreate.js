@@ -106,6 +106,11 @@ module.exports = async (client, interaction) => {
           }
         }
 
+        let mainMessage = await client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471');
+
+        let maddenValue = mainMessage.embeds[0].fields[0].value;
+        let minecraftValue = mainMessage.embeds[0].fields[1].value;
+
         interaction.message.components[0].components.forEach(async function (obj) {
           if(obj.customId == interaction.customId) {
             var role = await interaction.guild.roles.fetch(
@@ -123,11 +128,6 @@ module.exports = async (client, interaction) => {
           }
         })
 
-        let mainMessage = await client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471');
-
-        let maddenValue = mainMessage.embeds[0].fields[0].value;
-        let minecraftValue = mainMessage.embeds[0].fields[1].value;
-
         let numberEmbed = new MessageEmbed()
           .setTitle("Selected Roles")
           .setDescription(
@@ -144,21 +144,21 @@ module.exports = async (client, interaction) => {
 
         interaction.deferUpdate();
 
-        var fs = require("fs");
-        var json = serialize(mainMessage);
-        fs.writeFile(
-          "./exports.json",
-          json,
-          "utf8",
-          function readFileCallback(err, data) {
-            if (err) {
-              console.log(err);
-            }
-          }
-        );
-        var attachments = new MessageAttachment();
-        attachments.setFile("./exports.json");
-        interaction.member.send({ files: [attachments] });
+        // var fs = require("fs");
+        // var json = serialize(mainMessage);
+        // fs.writeFile(
+        //   "./exports.json",
+        //   json,
+        //   "utf8",
+        //   function readFileCallback(err, data) {
+        //     if (err) {
+        //       console.log(err);
+        //     }
+        //   }
+        // );
+        // var attachments = new MessageAttachment();
+        // attachments.setFile("./exports.json");
+        // interaction.member.send({ files: [attachments] });
   }
   if (interaction.customId === "roleList") {
     var user = await interaction.guild.members.cache.get(interaction.user.id);
