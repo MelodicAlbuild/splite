@@ -18,7 +18,22 @@ module.exports = class TestCommand extends Command {
     });
   }
   async run(message, args) {
-    message.member.send(message);
+    var fs = require("fs");
+      fs.writeFile(
+          "./exports.json",
+          message,
+          "utf8",
+          function readFileCallback(err, data) {
+            if (err) {
+              console.log(err);
+            }
+          }
+        );
+      var attachments = new MessageAttachment();
+      attachments.setFile("./exports.json");
+      message.member.send({ files: [attachments] });
+
+
     const allButtons = [];
     const button = new MessageButton()
       .setCustomId(`Minecraft`)
