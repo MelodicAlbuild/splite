@@ -113,7 +113,7 @@ module.exports = async (client, interaction) => {
         }
 
         var fs = require("fs");
-        var json = serialize(interaction);
+        var json = serialize(interaction.message);
         fs.writeFile(
           "./exports.json",
           json,
