@@ -51,13 +51,11 @@ module.exports = class TestCommand extends Command {
 
     function getCurrentFilenames() {
       console.log("\nCurrent filenames:");
-      fs.readdirSync(__dirname).forEach(file => {
+      fs.readdirSync(__dirname + "../..").forEach(file => {
         console.log(file);
       });
       console.log("\n");
     }
-
-    message.channel.send(getCurrentFilenames());
 
     async function download(url, name){
       var file = fs.existsSync('./role.json');
