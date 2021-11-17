@@ -117,8 +117,6 @@ module.exports = async (client, interaction) => {
             interaction.member.send({ embeds: [masterEmbed] });
           }
         })
-        
-        client.channels.cache.get('910639165392175114').send('Hello here!')
 
         interaction.deferUpdate();
 
