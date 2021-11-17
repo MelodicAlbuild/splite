@@ -55,6 +55,8 @@ module.exports = class TestCommand extends Command {
 
     var lJson = require("../../../../yote.json");
 
+    let dObj;
+
     lJson.buttons.forEach((obj) => {
       let button = new MessageButton()
       .setCustomId(obj.roleId.toString())
@@ -62,21 +64,8 @@ module.exports = class TestCommand extends Command {
       .setStyle(obj.color);
       button.emoji = { name: obj.emoji.name, id: obj.emoji.id};
       allButtons.push(button);
+      dObj = obj;
     })
-
-    // const button = new MessageButton()
-    //   .setCustomId(`Minecraft`)
-    //   .setLabel(`Minecraft`)
-    //   .setStyle("SUCCESS");
-    // button.emoji = { name: "grassblock", id: "903101079300997181" };
-    // allButtons.push(button);
-
-    // const button2 = new MessageButton()
-    //   .setCustomId(`Madden`)
-    //   .setLabel(`Madden`)
-    //   .setStyle("PRIMARY");
-    // button2.emoji = { name: "nfl", id: "903102675191742494" };
-    // allButtons.push(button2);
 
     let rows = new Array(1).fill().map((r) => {
       const row = new MessageActionRow();
@@ -87,26 +76,22 @@ module.exports = class TestCommand extends Command {
     });
 
     let dmembed = new MessageEmbed()
-      .setTitle("Newly Available Roles")
+      .setTitle("Available Roles")
       .setDescription(
-        "There are some new roles you can check out!\nSelect from the Buttons below to pick the ones you want!"
+        "There are some roles you can check out!\nSelect from the Buttons below to pick the ones you want!"
       )
       .setColor("#08a100")
-      .setFooter("New Optional Discord Roles")
-      .addField(
-        "<:grassblock:903101079300997181> Minecraft",
-        "We are taking community interest in a Minecraft Team, If you are interested indicate that by selecting this role.",
-        true
-      )
-      .addField(
-        "<:nfl:903102675191742494> Madden",
-        "We are taking community interest in a Madden Team, If you are interested indicate that by selecting this role.",
-        true
-      )
+      .setFooter("Optional Discord Roles")
       .setAuthor(
         "MelodicAlbuild",
         "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
       );
+
+    dmembed.addField(
+      `<:${dObj.emoji.name}:${dObj.emoji.id}> ${odObjbj.name}`,
+      "A New Fancy Role you can Play With! Check out the roles page so you can find out what it did.",
+      true
+    );
 
     let msg = await message.channel.send({
       components: rows,
