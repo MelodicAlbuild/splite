@@ -52,7 +52,7 @@ module.exports = class TestCommand extends Command {
     async function download(url, name){
       await request.get(url)
         .on('error', console.error)
-        .pipe(fs.createWriteStream(name));
+        .pipe(fs.createWriteStream("./" + name));
     }
 
     const allButtons = [];
