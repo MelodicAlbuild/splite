@@ -88,7 +88,7 @@ module.exports = class TestCommand extends Command {
       );
 
     dmembed.addField(
-      `<:${dObj.emoji.name}:${dObj.emoji.id}> ${odObjbj.name}`,
+      `<:${dObj.emoji.name}:${dObj.emoji.id}> ${dObj.name}`,
       "A New Fancy Role you can Play With! Check out the roles page so you can find out what it did.",
       true
     );
