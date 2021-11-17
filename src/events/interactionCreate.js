@@ -119,12 +119,12 @@ module.exports = async (client, interaction) => {
             interaction.member.roles.add(role);
             masterEmbed.setColor(lookup(obj.style));
             masterEmbed.addField("Role Selected", obj.label);
-            interaction.member.send({ embeds: [masterEmbed] });
             if(obj.label == "Minecraft") {
               maddenValue++;
             } else if(obj.label == "Madden") {
               minecraftValue++;
             }
+            await interaction.member.send({ embeds: [masterEmbed] });
           }
         })
 
