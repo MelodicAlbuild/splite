@@ -50,9 +50,9 @@ module.exports = class TestCommand extends Command {
     var fs = require("fs");
 
     async function download(url, name){
-      var file = new File("./" + name)
-      if(file.exists()) {
-        file.delete();
+      var file = fs.existsSync('../../../../yote.json');
+      if(file) {
+        fs.unlinkSync('../../../../yote.json');
       }
 
       await request.get(url)
