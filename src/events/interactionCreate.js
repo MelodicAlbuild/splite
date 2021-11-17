@@ -118,6 +118,24 @@ module.exports = async (client, interaction) => {
           }
         })
 
+        let mainMessage = await client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471');
+
+        interaction.member.send(mainMessage);
+
+        let numberEmbed = new MessageEmbed()
+          .setTitle("Selected Roles")
+          .setDescription(
+            "Selected Roles and How Many People have Selected Them"
+          )
+          .setAuthor(
+            "MelodicAlbuild",
+            "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
+          )
+          .addField("Minecraft", 0, true)
+          .addField("Madden", 0, true);
+
+        client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed] }))
+
         interaction.deferUpdate();
 
         // var fs = require("fs");
