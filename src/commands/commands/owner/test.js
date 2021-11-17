@@ -64,19 +64,19 @@ module.exports = class TestCommand extends Command {
       allButtons.push(button);
     })
 
-    const button = new MessageButton()
-      .setCustomId(`Minecraft`)
-      .setLabel(`Minecraft`)
-      .setStyle("SUCCESS");
-    button.emoji = { name: "grassblock", id: "903101079300997181" };
-    allButtons.push(button);
+    // const button = new MessageButton()
+    //   .setCustomId(`Minecraft`)
+    //   .setLabel(`Minecraft`)
+    //   .setStyle("SUCCESS");
+    // button.emoji = { name: "grassblock", id: "903101079300997181" };
+    // allButtons.push(button);
 
-    const button2 = new MessageButton()
-      .setCustomId(`Madden`)
-      .setLabel(`Madden`)
-      .setStyle("PRIMARY");
-    button2.emoji = { name: "nfl", id: "903102675191742494" };
-    allButtons.push(button2);
+    // const button2 = new MessageButton()
+    //   .setCustomId(`Madden`)
+    //   .setLabel(`Madden`)
+    //   .setStyle("PRIMARY");
+    // button2.emoji = { name: "nfl", id: "903102675191742494" };
+    // allButtons.push(button2);
 
     let rows = new Array(1).fill().map((r) => {
       const row = new MessageActionRow();
