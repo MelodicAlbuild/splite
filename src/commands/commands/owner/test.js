@@ -47,7 +47,7 @@ module.exports = class TestCommand extends Command {
         }
     }
 
-    var fs = require("fs");
+    const fs = require("fs");
 
     function getCurrentFilenames() {
       console.log("\nCurrent filenames:");
@@ -59,13 +59,12 @@ module.exports = class TestCommand extends Command {
 
     getCurrentFilenames();
 
-    async function download(url, name){
-      var file = fs.existsSync(process.cwd() + '/role.json');
-      if(file) {
+    function download(url, name){
+      if(fs.existsSync(process.cwd() + '/role.json')) {
         fs.unlinkSync(process.cwd() + '/role.json');
       }
 
-      await request.get(url)
+      request.get(url)
         .on('error', console.error)
         .pipe(fs.createWriteStream("./" + name));
     }
