@@ -106,7 +106,7 @@ module.exports = async (client, interaction) => {
           }
         }
 
-        interaction.message.components[0].components.forEach((obj) => {
+        interaction.message.components[0].components.forEach(async function (obj) {
           if(obj.customId == interaction.customId) {
             var role = await interaction.guild.roles.fetch(
               interaction.customId
