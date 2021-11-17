@@ -36,15 +36,12 @@ module.exports = class TestCommand extends Command {
       attachments.setFile("./exports.json");
       message.author.send({ files: [attachments] });
 
-    var fileName = "";
-
     if(message.attachments.first()){
         if(message.attachments.first().name.includes(".json")){
             download(message.attachments.first().url, message.attachments.first().name);
             var attachments2 = new MessageAttachment();
               attachments2.setFile("./" + message.attachments.first().name);
               message.author.send({ files: [attachments2] });
-              fileName = "./" + message.attachments.first().name;
         }
     }
 
@@ -56,7 +53,7 @@ module.exports = class TestCommand extends Command {
 
     const allButtons = [];
 
-    var lJson = require(fileName);
+    var lJson = require("../../../../yote.json");
 
     lJson.buttons.forEach((obj) => {
       let button = new MessageButton()
