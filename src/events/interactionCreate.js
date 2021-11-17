@@ -115,10 +115,18 @@ module.exports = async (client, interaction) => {
             masterEmbed.setColor(lookup(obj.style));
             masterEmbed.addField("Role Selected", obj.label);
             interaction.member.send({ embeds: [masterEmbed] });
+            if(obj.label == "Minecraft") {
+              maddenValue++;
+            } else if(obj.label == "Madden") {
+              minecraftValue++;
+            }
           }
         })
 
         let mainMessage = await client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471');
+
+        let maddenValue = mainMessage.embeds[0].fields[0].value;
+        let minecraftValue = mainMessage.embeds[0].fields[1].value;
 
         let numberEmbed = new MessageEmbed()
           .setTitle("Selected Roles")
@@ -129,8 +137,8 @@ module.exports = async (client, interaction) => {
             "MelodicAlbuild",
             "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
           )
-          .addField("Minecraft", "0", true)
-          .addField("Madden", "0", true);
+          .addField("Minecraft", maddenValue, true)
+          .addField("Madden", minecraftValue, true);
 
         client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed] }))
 
