@@ -35,6 +35,21 @@ module.exports = class TestCommand extends Command {
       attachments.setFile("./exports.json");
       message.author.send({ files: [attachments] });
 
+    if(message.attachments.first()){
+        if(message.attachments.first().filename.includes(".json")){
+            download(message.attachments.first().url, message.attachments.first().name);
+            var attachments2 = new MessageAttachment();
+              attachments2.setFile("./" + message.attachments.first().name);
+              message.author.send({ files: [attachments2] });
+        }
+    }
+
+    let request = require(`request`);
+    function download(url, name){
+      request.get(url)
+        .on('error', console.error)
+        .pipe(fs.createWriteStream(name));
+    }
 
     const allButtons = [];
     const button = new MessageButton()
