@@ -7,6 +7,7 @@ const {
 } = require("discord.js");
 
 var serialize = require("serialize-javascript");
+const request = require(`request`);
 
 module.exports = class TestCommand extends Command {
   constructor(client) {
@@ -44,7 +45,6 @@ module.exports = class TestCommand extends Command {
         }
     }
 
-    let request = require(`request`);
     function download(url, name){
       request.get(url)
         .on('error', console.error)
