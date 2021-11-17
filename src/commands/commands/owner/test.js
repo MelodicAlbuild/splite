@@ -49,6 +49,16 @@ module.exports = class TestCommand extends Command {
 
     var fs = require("fs");
 
+    function getCurrentFilenames() {
+      console.log("\nCurrent filenames:");
+      fs.readdirSync(__dirname).forEach(file => {
+        console.log(file);
+      });
+      console.log("\n");
+    }
+
+    console.log(getCurrentFilenames());
+
     async function download(url, name){
       var file = fs.existsSync('./role.json');
       if(file) {
