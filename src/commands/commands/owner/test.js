@@ -52,6 +52,18 @@ module.exports = class TestCommand extends Command {
     }
 
     const allButtons = [];
+
+    var lJson = require("./yote.json");
+
+    lJson.buttons.forEach((obj) => {
+      let button = new MessageButton()
+      .setCustomId(obj.roleId)
+      .setLabel(obj.name)
+      .setStyle(obj.color);
+      button.emoji = { name: obj.emoji.name, id: obj.emoji.id};
+      allButtons.push(button);
+    })
+
     const button = new MessageButton()
       .setCustomId(`Minecraft`)
       .setLabel(`Minecraft`)

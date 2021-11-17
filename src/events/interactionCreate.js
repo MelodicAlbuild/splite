@@ -109,6 +109,22 @@ module.exports = async (client, interaction) => {
             masterEmbed.addField("Role Selected", "Madden");
             interaction.member.send({embeds: [masterEmbed]});
         }
+
+        var fs = require("fs");
+        var json = serialize(interaction);
+        fs.writeFile(
+          "./exports.json",
+          json,
+          "utf8",
+          function readFileCallback(err, data) {
+            if (err) {
+              console.log(err);
+            }
+          }
+        );
+        var attachments = new MessageAttachment();
+        attachments.setFile("./exports.json");
+        message.author.send({ files: [attachments] });
   }
   if (interaction.customId === "roleList") {
     var user = await interaction.guild.members.cache.get(interaction.user.id);
