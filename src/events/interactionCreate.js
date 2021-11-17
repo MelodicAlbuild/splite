@@ -124,23 +124,22 @@ module.exports = async (client, interaction) => {
             } else if(obj.label == "Madden") {
               minecraftValue++;
             }
+            let numberEmbed = new MessageEmbed()
+            .setTitle("Selected Roles")
+            .setDescription(
+              "Selected Roles and How Many People have Selected Them"
+            )
+            .setAuthor(
+              "MelodicAlbuild",
+              "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
+            )
+            .addField("Minecraft", maddenValue, true)
+            .addField("Madden", minecraftValue, true);
+
+          client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed] }))
             await interaction.member.send({ embeds: [masterEmbed] });
           }
         })
-
-        let numberEmbed = new MessageEmbed()
-          .setTitle("Selected Roles")
-          .setDescription(
-            "Selected Roles and How Many People have Selected Them"
-          )
-          .setAuthor(
-            "MelodicAlbuild",
-            "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
-          )
-          .addField("Minecraft", maddenValue, true)
-          .addField("Madden", minecraftValue, true);
-
-        client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed] }))
 
         interaction.deferUpdate();
 
