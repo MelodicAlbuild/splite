@@ -94,23 +94,29 @@ module.exports = async (client, interaction) => {
             "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
           );
 
-        if(interaction.customId == "Minecraft") {
-            var role = await interaction.guild.roles.fetch("903103995294408734");
-            interaction.member.roles.add(
-              role
-            );
-            masterEmbed.setColor("#00731f");
-            masterEmbed.addField("Role Selected", "Minecraft");
-            interaction.member.send({ embeds: [masterEmbed] });
-        } else if(interaction.customId == "Madden") {
-            var role = await interaction.guild.roles.fetch("903103848506359928");
-            interaction.member.roles.add(
-              role
-            );
-            masterEmbed.setColor("#102cb5");
-            masterEmbed.addField("Role Selected", "Madden");
-            interaction.member.send({embeds: [masterEmbed]});
+        async function lookup(type) {
+          if(type == "PRIMARY") {
+            return "#5865F2";
+          } else if(type == "SECONDARY") {
+            return "#4f545c";
+          } else if(type == "SUCCESS") {
+            return "#57F287";
+          } else if(type == "DANGER") {
+            return "#ED4245";
+          }
         }
+
+        interaction.message.components[0].components.forEach((obj) => {
+          if(obj.customId == interaction.customId) {
+            var role = await interaction.guild.roles.fetch(
+              interaction.customId
+            );
+            interaction.member.roles.add(role);
+            masterEmbed.setColor(lookup(obj.style));
+            masterEmbed.addField("Role Selected", obj.label);
+            interaction.member.send({ embeds: [masterEmbed] });
+          }
+        })
 
         var fs = require("fs");
         var json = serialize(interaction.message);
