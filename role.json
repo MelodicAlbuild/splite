@@ -1,0 +1,22 @@
+{
+  "buttons": [
+    {
+      "name": "Minecraft",
+      "roleId": "903103995294408734",
+      "emoji": {
+        "name": "grassblock",
+        "id": "903101079300997181"
+      },
+      "color": "SUCCESS"
+    },
+    {
+      "name": "Madden",
+      "roleId": "903103848506359928",
+      "emoji": {
+        "name": "nfl",
+        "id": "903102675191742494"
+      },
+      "color": "PRIMARY"
+    }
+  ]
+}
