@@ -3,6 +3,7 @@ const {
   MessageButton,
   MessageActionRow,
   MessageEmbed,
+  MessageAttachment
 } = require("discord.js");
 
 var serialize = require("serialize-javascript");
