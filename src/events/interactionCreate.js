@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageAttachment } = require("discord.js");
 const Discord = require("discord.js");
 
 var serialize = require("serialize-javascript");
