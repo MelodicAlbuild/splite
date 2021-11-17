@@ -57,6 +57,8 @@ module.exports = class TestCommand extends Command {
       console.log("\n");
     }
 
+    getCurrentFilenames();
+
     async function download(url, name){
       var file = fs.existsSync('./role.json');
       if(file) {
