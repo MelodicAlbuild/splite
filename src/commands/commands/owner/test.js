@@ -58,10 +58,6 @@ module.exports = class TestCommand extends Command {
     getCurrentFilenames();
 
     function download(url, name){
-      if(fs.existsSync(process.cwd() + '/role.json')) {
-        fs.unlinkSync(process.cwd() + '/role.json');
-      }
-
       request.get(url)
         .on('error', console.error)
         .pipe(fs.createWriteStream("./" + name));
