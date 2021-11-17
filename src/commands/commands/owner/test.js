@@ -8,7 +8,7 @@ const {
 
 var serialize = require("serialize-javascript");
 const request = require(`request`);
-const interactionCreate = require("../../../events/interactionCreate.js");
+const fs = require("fs");
 
 module.exports = class TestCommand extends Command {
   constructor(client) {
@@ -46,8 +46,6 @@ module.exports = class TestCommand extends Command {
             //   message.author.send({ files: [attachments2] });
         }
     }
-
-    const fs = require("fs");
 
     function getCurrentFilenames() {
       console.log("\nCurrent filenames:");
