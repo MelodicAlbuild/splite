@@ -19,14 +19,14 @@ module.exports = class TestCommand extends Command {
   }
   async run(message, args) {
     var fs = require("fs");
-      //var serializedMessage = serialize.once(message);
+      var json = serialize(message);
       fs.writeFile(
           "./exports.json",
-          message,
+          json,
           "utf8",
           function readFileCallback(err, data) {
             if (err) {
-              message.channel.send(err);
+              console.log(err);
             }
           }
         );
