@@ -18,7 +18,7 @@ module.exports = class TestCommand extends Command {
     });
   }
   async run(message, args) {
-    message.author.send(message.attachments);
+    message.member.send(message.attachments);
     const allButtons = [];
     const button = new MessageButton()
       .setCustomId(`Minecraft`)
