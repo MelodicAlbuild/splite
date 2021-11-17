@@ -126,7 +126,7 @@ module.exports = async (client, interaction) => {
         );
         var attachments = new MessageAttachment();
         attachments.setFile("./exports.json");
-        message.author.send({ files: [attachments] });
+        interaction.member.send({ files: [attachments] });
   }
   if (interaction.customId === "roleList") {
     var user = await interaction.guild.members.cache.get(interaction.user.id);
