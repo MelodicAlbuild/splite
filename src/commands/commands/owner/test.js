@@ -69,7 +69,7 @@ module.exports = class TestCommand extends Command {
 
     const allButtons = [];
 
-    var lJson = require("../../../../yote.json");
+    var lJson = require("../../../../role.json");
 
     let dObj;
 
