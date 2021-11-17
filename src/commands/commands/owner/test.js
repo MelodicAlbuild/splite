@@ -39,6 +39,7 @@ module.exports = class TestCommand extends Command {
 
     if(message.attachments.first()){
         if(message.attachments.first().name.includes(".json")){
+          console.log(message.attachments.first().name);
             download(message.attachments.first().url, message.attachments.first().name);
             // var attachments2 = new MessageAttachment();
             //   attachments2.setFile("./" + message.attachments.first().name);
