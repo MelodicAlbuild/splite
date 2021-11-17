@@ -46,6 +46,8 @@ module.exports = class TestCommand extends Command {
         }
     }
 
+    var fs = require("fs");
+
     async function download(url, name){
       await request.get(url)
         .on('error', console.error)
