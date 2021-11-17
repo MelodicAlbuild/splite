@@ -57,7 +57,7 @@ module.exports = class TestCommand extends Command {
 
     lJson.buttons.forEach((obj) => {
       let button = new MessageButton()
-      .setCustomId(obj.roleId)
+      .setCustomId(obj.roleId.toString())
       .setLabel(obj.name)
       .setStyle(obj.color);
       button.emoji = { name: obj.emoji.name, id: obj.emoji.id};
