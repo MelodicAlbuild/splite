@@ -119,9 +119,9 @@ module.exports = async (client, interaction) => {
             interaction.member.roles.add(role);
             masterEmbed.setColor(lookup(obj.style));
             masterEmbed.addField("Role Selected", obj.label);
-            if(obj.label == "Minecraft") {
+            if (interaction.customId == "903103995294408734") {
               maddenValue++;
-            } else if(obj.label == "Madden") {
+            } else if (interaction.customId == "903103848506359928") {
               minecraftValue++;
             }
             await interaction.member.send({ embeds: [masterEmbed] });
