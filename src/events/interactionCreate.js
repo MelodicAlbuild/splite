@@ -120,9 +120,9 @@ module.exports = async (client, interaction) => {
             masterEmbed.setColor(lookup(obj.style));
             masterEmbed.addField("Role Selected", obj.label);
             if (interaction.customId == "903103995294408734") {
-              maddenValue++;
+              maddenValue += 1;
             } else if (interaction.customId == "903103848506359928") {
-              minecraftValue++;
+              minecraftValue += 1;
             }
             await interaction.member.send({ embeds: [masterEmbed] });
           }
@@ -143,7 +143,7 @@ module.exports = async (client, interaction) => {
         console.log("Minecraft Value: " + maddenValue)
         console.log("Madden Value: " + minecraftValue);
 
-        client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed] }))
+        client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed], content: "" }))
 
         interaction.deferUpdate();
 
