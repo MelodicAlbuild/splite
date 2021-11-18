@@ -121,8 +121,12 @@ module.exports = async (client, interaction) => {
             masterEmbed.addField("Role Selected", obj.label);
             if (interaction.customId == "903103995294408734") {
               maddenValue += 1;
+              console.log("Minecraft Added")
             } else if (interaction.customId == "903103848506359928") {
               minecraftValue += 1;
+              console.log("Madden Added")
+            } else {
+              console.log("No Interaction match")
             }
             await interaction.member.send({ embeds: [masterEmbed] });
           }
@@ -143,7 +147,7 @@ module.exports = async (client, interaction) => {
         console.log("Minecraft Value: " + maddenValue)
         console.log("Madden Value: " + minecraftValue);
 
-        client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed], content: "" }))
+        client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed], content: "Roles:" }))
 
         interaction.deferUpdate();
 
