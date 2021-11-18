@@ -12,9 +12,10 @@ module.exports = class SendMSGCommand extends Command {
     }
     async run(message, args) {
         if(args[0] != null) {
-            client.users.fetch(args[0]).then((user) => {
+            message.guild.members.fetch(args[0]).then((user) => {
 	            const msg = message.content.slice(message.content.indexOf(args[1]), message.content.length);
                 user.send(msg);
+                message.delete();
             }).catch(console.error);
         }
     }
