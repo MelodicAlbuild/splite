@@ -59,15 +59,13 @@ module.exports = class TestCommand extends Command {
 
     function download(url, name){
       request.get(url)
-        .on('error', console.error + "From Download Function")
+        .on('error', console.error)
         .pipe(fs.createWriteStream("./" + name));
     }
 
     const allButtons = [];
 
     var lJson = require("../../../../role.json");
-
-    let dObj;
 
     lJson.buttons.forEach((obj) => {
       let button = new MessageButton()
