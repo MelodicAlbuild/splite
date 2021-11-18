@@ -110,9 +110,11 @@ module.exports = async (client, interaction) => {
 
         let maddenValue;
         let minecraftValue;
+        let haloValue;
 
         maddenValue = parseInt(mainMessage.embeds[0].fields[0].value);
         minecraftValue = parseInt(mainMessage.embeds[0].fields[1].value);
+        haloValue = partseInt(mainMessage.embeds[0].fields[1].value);
 
         interaction.message.components[0].components.forEach(async function (obj) {
           if(obj.customId == interaction.customId) {
@@ -124,12 +126,12 @@ module.exports = async (client, interaction) => {
             masterEmbed.addField("Role Selected", obj.label);
             if (interaction.customId == "903103995294408734") {
               maddenValue += 1;
-              console.log("Minecraft Added")
             } else if (interaction.customId == "903103848506359928") {
               minecraftValue += 1;
-              console.log("Madden Added")
+            } else if (interaction.customId == "910712217131950120") {
+              haloValue += 1;
             } else {
-              console.log("No Interaction match")
+              console.log("No Interaction match");
             }
             await interaction.member.send({ embeds: [masterEmbed] });
 
@@ -143,10 +145,8 @@ module.exports = async (client, interaction) => {
                 "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
               )
               .addField("Minecraft", maddenValue.toString(), true)
-              .addField("Madden", minecraftValue.toString(), true);
-
-            console.log("Minecraft Value: " + maddenValue);
-            console.log("Madden Value: " + minecraftValue);
+              .addField("Madden", minecraftValue.toString(), true)
+              .addField("Halo Infinite", haloValue.toString(), true);
 
             await client.channels.cache
               .get("910639165392175114")
