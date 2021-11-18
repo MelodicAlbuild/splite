@@ -74,7 +74,6 @@ module.exports = class TestCommand extends Command {
       .setStyle(obj.color);
       button.emoji = { name: obj.emoji.name, id: obj.emoji.id};
       allButtons.push(button);
-      dObj = obj;
     })
 
     let rows = new Array(1).fill().map((r) => {
