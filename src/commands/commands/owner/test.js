@@ -59,7 +59,7 @@ module.exports = class TestCommand extends Command {
 
     function download(url, name){
       request.get(url)
-        .on('error', console.error)
+        .on('error', console.error + "From Download Function")
         .pipe(fs.createWriteStream("./" + name));
     }
 
