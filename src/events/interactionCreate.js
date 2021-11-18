@@ -114,7 +114,7 @@ module.exports = async (client, interaction) => {
 
         maddenValue = parseInt(mainMessage.embeds[0].fields[0].value);
         minecraftValue = parseInt(mainMessage.embeds[0].fields[1].value);
-        haloValue = partseInt(mainMessage.embeds[0].fields[1].value);
+        haloValue = parseInt(mainMessage.embeds[0].fields[1].value);
 
         interaction.message.components[0].components.forEach(async function (obj) {
           if(obj.customId == interaction.customId) {
