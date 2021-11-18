@@ -140,6 +140,9 @@ module.exports = async (client, interaction) => {
           .addField("Minecraft", maddenValue.toString(), true)
           .addField("Madden", minecraftValue.toString(), true);
 
+        console.log("Minecraft Value: " + maddenValue)
+        console.log("Madden Value: " + minecraftValue);
+
         client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471').then(msg => msg.edit({ embeds: [numberEmbed] }))
 
         interaction.deferUpdate();
