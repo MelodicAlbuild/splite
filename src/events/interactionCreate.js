@@ -108,8 +108,8 @@ module.exports = async (client, interaction) => {
 
         let mainMessage = await client.channels.cache.get('910639165392175114').messages.fetch('910639655962173471');
 
-        let maddenValue = mainMessage.embeds[0].fields[0].value;
-        let minecraftValue = mainMessage.embeds[0].fields[1].value;
+        let maddenValue = parseInt(mainMessage.embeds[0].fields[0].value);
+        let minecraftValue = parseInt(mainMessage.embeds[0].fields[1].value);
 
         interaction.message.components[0].components.forEach(async function (obj) {
           if(obj.customId == interaction.customId) {
