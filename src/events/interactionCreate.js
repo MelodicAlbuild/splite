@@ -142,7 +142,7 @@ module.exports = async (client, interaction) => {
                 "MelodicAlbuild",
                 "https://cdn.discordapp.com/avatars/392502749876584448/7d3ab8457b9509dc783f447c4a77da55.webp?size=80"
               )
-              .addField("Minecraft", "4", true)
+              .addField("Minecraft", maddenValue.toString(), true)
               .addField("Madden", minecraftValue.toString(), true);
 
             console.log("Minecraft Value: " + maddenValue);
