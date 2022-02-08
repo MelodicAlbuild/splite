@@ -18,7 +18,7 @@ module.exports = class giftPointsCommand extends Command {
     const member = this.getMemberFromMention(message, args[0]) || message.guild.members.cache.get(args[0]);
     let reason = "";
     let i = 0;
-    args.foreach(arg => {
+    args.forEach(arg => {
         if(i != 0 && i != 1) {
             reason += arg;
         } else {
