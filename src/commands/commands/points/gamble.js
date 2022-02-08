@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const { stripIndent } = require('common-tags');
 const emojis = require('../../../utils/emojis.json')
 
-const limit = 10000;
+const limit = 100000000;
 
 module.exports = class gambleCommand extends Command {
   constructor(client) {
