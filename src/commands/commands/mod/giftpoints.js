@@ -21,7 +21,7 @@ module.exports = class giftPointsCommand extends Command {
     let i = 0;
     args.forEach(arg => {
         if(i != 0 && i != 1) {
-            reason += arg;
+            reason += arg + " ";
         } else {
             i++;
         }
