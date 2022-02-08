@@ -64,7 +64,7 @@ module.exports = class giftPointsCommand extends Command {
       .setColor(member.displayHexColor);
     
     this.client.channels.cache
-      .get("818376199100563466")
+      .get("882790677732274180")
       .send({ embeds: [sembed] });
   }
 };
