@@ -1,0 +1,34 @@
+{
+  "version": 1.0,
+  "applications": {
+    "verification": {
+      "id": 0,
+      "name": "Verification",
+      "desc": "Required to join the Eagle Esports Discord Server.",
+      "author": "MelodicAlbuild",
+      "maxResponses": 1,
+      "time": 120000,
+      "errors": ["time"],
+      "quiz": false,
+      "questions": [
+        {
+          "question": "What is your PISD Email?",
+          "answers": ""
+        },
+        {
+          "question": "What is your Name? (First and Last)",
+          "answers": ""
+        },
+        {
+          "question": "Have you submitted your Permission Slip?",
+          "answers": ""
+        },
+        {
+          "question": "Which teams would you like to join? A Full list is available here: https://drive.google.com/file/d/1eJzEyEiQxKG3mGw3kEZ3pcJMjJcYuAW1/view",
+          "answers": ""
+        }
+      ]
+    }
+  },
+  "verifying": false
+}

@@ -84,6 +84,10 @@ module.exports = async (client, interaction) => {
       }
     }
   } else if(interaction.isButton()) {
+    var testRole = await interaction.guild.roles.fetch(interaction.customId);
+    if(testRole == null) {
+      return;
+    }
     let masterEmbed = new MessageEmbed()
           .setTitle("Thank You!")
           .setDescription(
