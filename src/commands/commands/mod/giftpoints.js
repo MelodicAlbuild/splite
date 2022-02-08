@@ -47,8 +47,24 @@ module.exports = class giftPointsCommand extends Command {
       .setTimestamp()
       .setColor(member.displayHexColor);
     message.channel.send({embeds: [embed]});
+
+    const sembed = new MessageEmbed()
+      .setTitle(`${member.displayName}'s Points ${emojis.point}`)
+      .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+      .setDescription(description)
+      .addField("To", member.toString(), true)
+      .addField("By", message.member.displayName, true)
+      .addField("Reason", reason, true)
+      .addField("Points", `\`${oldPoints}\` ➔ \`${amount + oldPoints}\``, true)
+      .setFooter(
+        message.member.displayName,
+        message.author.displayAvatarURL({ dynamic: true })
+      )
+      .setTimestamp()
+      .setColor(member.displayHexColor);
+    
     this.client.channels.cache
       .get("818376199100563466")
-      .send({ embeds: [embed] });
+      .send({ embeds: [sembed] });
   }
 };
